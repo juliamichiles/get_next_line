@@ -1,0 +1,6 @@
+- norminette check header + utils
+- mais testes
+- colocar header 42
+- criar gitignore
+- fazer bonus
+- ultimos testes
