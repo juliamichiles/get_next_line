@@ -1,4 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/13 12:42:54 by juliatav          #+#    #+#             */
+/*   Updated: 2025/11/13 13:38:40 by juliatav         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
+
+void	*free_buffers(char *b1, char *b2)
+{
+	free(b1);
+	free(b2);
+	return (NULL);
+}
 
 ssize_t	find_newline(char *s)
 {
@@ -16,25 +35,29 @@ ssize_t	find_newline(char *s)
 
 char	*read_file(char *stash, int fd)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 	char	*temp;
 	ssize_t	b_read;
 
 	b_read = 1;
+	buffer = ft_calloc(1, (size_t)(BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	while (b_read > 0)
 	{
 		b_read = read(fd, buffer, BUFFER_SIZE);
 		if (b_read == -1)
-			return (NULL);
+			return (free_buffers(buffer, stash));
 		buffer[b_read] = '\0';
 		temp = ft_strjoin(stash, buffer);
 		if (!temp)
-			return (NULL);
+			return (free_buffers(buffer, stash));
 		free(stash);
 		stash = temp;
 		if (find_newline(stash) != -1)
 			break ;
 	}
+	free(buffer);
 	return (stash);
 }
 
@@ -75,5 +98,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	line = extract_line(&stash);
+	if (!line)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
 	return (line);
 }

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/13 12:42:45 by juliatav          #+#    #+#             */
+/*   Updated: 2025/11/13 12:48:52 by juliatav         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
 # endif
 
 # if BUFFER_SIZE > 9223372036854775806
@@ -10,10 +22,10 @@
 #  define BUFFER_SIZE 0
 # endif
 
-#include <stdint.h>
-#include <stddef.h>//acho que não usei
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdint.h>
+# include <stddef.h>//acho que não usei
+# include <stdlib.h>
+# include <unistd.h>
 
 void	*ft_calloc(size_t size, size_t nmemb);
 size_t	ft_strlen(char *str);

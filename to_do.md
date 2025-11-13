@@ -4,3 +4,4 @@
 - criar gitignore
 - fazer bonus
 - ultimos testes
+- da um erro no strict

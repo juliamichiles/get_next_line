@@ -1,23 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/13 12:43:05 by juliatav          #+#    #+#             */
+/*   Updated: 2025/11/13 13:17:43 by juliatav         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 void	*ft_calloc(size_t size, size_t nmemb)
 {
 	unsigned char	*block;
-	size_t		total;
-	size_t		i;
-	
+	size_t			total;
+	size_t			i;
+
 	i = 0;
 	if (SIZE_MAX / size < nmemb)
 		return (NULL);
 	total = size * nmemb;
 	if (total == 0)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	block = malloc(total);
 	if (!block)
 		return (NULL);
 	while (i < total)
 		block[i++] = 0;
-	return(block);
+	return (block);
 }
 
 size_t	ft_strlen(char *str)
@@ -56,9 +68,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return(ft_strdup(s2));
+		return (ft_strdup(s2));
 	if (!s2)
-		return(ft_strdup(s1));
+		return (ft_strdup(s1));
 	joined = ft_calloc(1, ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!joined)
 		return (NULL);
@@ -78,7 +90,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
-		return (ft_calloc(0, 0));
+		return (ft_calloc(1, 1));
 	sub = ft_calloc(1, len + 1);
 	if (!sub)
 		return (NULL);
