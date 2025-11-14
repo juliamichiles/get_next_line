@@ -1,8 +1,12 @@
-~~- norminette check header + utils~~
-~~- mais testes~~
-~~- colocar header 42~~
-~~- fazer bonus~~
-- testar bonus, o main ta feito 
+- ~~norminette check header + utils~~
+- ~~mais testes~~
+- ~~colocar header 42~~
+- ~~fazer bonus~~
+- ~~testar bonus, o main ta feito~~
 - da um erro no strict
-- tirar bonus do dir 'bonus/'
+- ~~tirar bonus do dir 'bonus/'~~
 - criar gitignore (a.out, main.c, to_do, etc.)
+- colocar no tudo no repositório de entrega
+- extra normi e franci check
+- supostamente está testado
+- mais testes com o main?
