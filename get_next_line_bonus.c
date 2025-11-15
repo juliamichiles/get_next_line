@@ -6,16 +6,24 @@
 /*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:42:54 by juliatav          #+#    #+#             */
-/*   Updated: 2025/11/15 18:53:45 by juliatav         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:07:12 by juliatav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-void	*free_buffers(char *b1, char *b2)
+void	*free_buffers(char **b1, char **b2)
 {
-	free(b1);
-	free(b2);
+	if (b1 && (*b1))
+	{
+		free(b1);
+		*b1 = NULL;
+	}
+	if (b2 && (*b2))
+	{
+		free(b2);
+		*b1 = NULL;
+	}
 	return (NULL);
 }
 
@@ -47,9 +55,9 @@ char	*read_file(char *stash, int fd)
 	{
 		b_read = read(fd, buffer, BUFFER_SIZE);
 		if (b_read == -1)
-			return (free_buffers(buffer, stash));
+			return (free_buffers(&buffer, &stash));
 		buffer[b_read] = '\0';
-		temp = ft_strjoin(stash, buffer);
+		temp = ft_strjoin(&stash, &buffer);
 		if (!temp)
 			return (free_buffers(buffer, stash));
 		free(stash);
@@ -69,7 +77,7 @@ char	*extract_line(char **stash)
 
 	leftover = NULL;
 	if (!(*stash) || !(**stash))
-		return (NULL);
+		return (free_buffers(NULL, stash));
 	line_index = find_newline(*stash);
 	if (line_index == -1)
 		line = ft_strdup(*stash);
@@ -89,7 +97,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free_buffers(NULL, &stash));
 	stash[fd] = read_file(stash[fd], fd);
 	if (!stash[fd] || !(*stash[fd]))
 	{
