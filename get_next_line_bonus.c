@@ -6,7 +6,7 @@
 /*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:42:54 by juliatav          #+#    #+#             */
-/*   Updated: 2025/11/13 15:34:34 by juliatav         ###   ########.fr       */
+/*   Updated: 2025/11/15 18:53:45 by juliatav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*extract_line(char **stash)
 	char	*line;
 
 	leftover = NULL;
-	if (!(**stash) || !(*stash))
+	if (!(*stash) || !(**stash))
 		return (NULL);
 	line_index = find_newline(*stash);
 	if (line_index == -1)

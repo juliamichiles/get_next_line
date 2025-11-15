@@ -6,7 +6,7 @@
 /*   By: juliatav <juliatav@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:43:05 by juliatav          #+#    #+#             */
-/*   Updated: 2025/11/13 13:17:43 by juliatav         ###   ########.fr       */
+/*   Updated: 2025/11/15 19:14:16 by juliatav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ size_t	ft_strlen(char *str)
 {
 	size_t	len;
 
+	if (!str)
+		return (0);
 	len = 0;
 	while (*(str + len))
 		len++;

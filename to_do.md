@@ -10,5 +10,5 @@
 - extra normi e franci check
 - supostamente está testado
 - mais testes com o main?
-- trocar ordem if if (!(**stash) || !(*stash))
-- colocar NULL ptr na strlen
+- ~~trocar ordem if if (!(**stash) || !(*stash))~~
+- ~~colocar NULL ptr na strlen~~
