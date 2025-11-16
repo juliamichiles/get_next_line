@@ -5,10 +5,9 @@
 - ~~testar bonus, o main ta feito~~
 - da um erro no strict
 - ~~tirar bonus do dir 'bonus/'~~
-- criar gitignore (a.out, main.c, to_do, etc.)
-- colocar no tudo no repositório de entrega
-- extra normi e franci check
-- supostamente está testado
-- mais testes com o main?
+- ~~mais testes com o main?~~
 - ~~trocar ordem if if (!(**stash) || !(*stash))~~
 - ~~colocar NULL ptr na strlen~~
+- mudar nome do TOBE_gitignore pra .gitignore
+- colocar no tudo no repositório de entrega
+- extra normi e franci check

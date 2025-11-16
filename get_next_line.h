@@ -23,7 +23,7 @@
 # endif
 
 # include <stdint.h>
-# include <stddef.h>//acho que não usei
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 
